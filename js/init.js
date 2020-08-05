@@ -40,12 +40,18 @@ var getJSONData = function(url){
     });
 }
 
+var logueado = sessionStorage.getItem("visitado");
+if (logueado != 1){
+  window.location.href= "login.html";
+  sessionStorage.setItem("visitado","1");
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
-var redireccion_autenticacion = function(){
-  window.location.href = "login.html";
+
+var redireccion_index = function(){
+  window.location.href = "index.html"
 }
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  redireccion_autenticacion()
+  
 });

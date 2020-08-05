@@ -22,7 +22,7 @@
   <form action="#" method="GET" class="formulariologin">
     <fieldset>
       <label for="usuario">Usuario:</label>
-      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" required>
+      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario">
     </fieldset>
     <fieldset>
       <label for="contraseña">Contraseña:</label>
@@ -30,9 +30,9 @@
     </fieldset>
     <fieldset>
       <label for="recuerdame">Recuérdame</label>
-      <input type="checkbox" name="recuerdame" id="recuerdame">
+      <input type="checkbox" name="recuerdame" id="recuerdame" required>
     </fieldset>
-    <input type="submit"  value="Acceder" id="enviar">
+    <input type="submit"  value="Acceder" id="enviar" onclick="sessionStorage.setItem('visitado','1'); redireccion_index()">
 
   </form>
 

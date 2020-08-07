@@ -147,7 +147,6 @@ a.custom-card:hover {
 }
 
 #titulo_login{
-  margin-top: 2%;
   font-weight: 500;
 }
 
@@ -162,6 +161,7 @@ a.custom-card:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(243, 238, 235);
+  margin-top: 5%;
 }
 
 #enviar{
@@ -189,4 +189,27 @@ a.custom-card:hover {
 
 #solicitud_datos{
   font-weight: bolder;
+}
+
+.container{
+  margin-top: 4%;
+}
+
+.row{
+  line-height: 30px;
+}
+
+.nombre_auto{
+  font-size: 35px;
+  font-style: italic;
+}
+
+.precio{
+  font-size: 22px;
+  color: black;
+  font: bold;
+}
+
+#descripcion{
+  margin-top: 5%;
 }

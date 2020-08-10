@@ -19,10 +19,10 @@
   <img src="img/entrada.jpg" class="img_login">
   <h1 id="titulo_login">Bienvenido a eMercado</h1>
   <p id="solicitud_datos">Por favor, ingrese el usuario y contraseña</p>
-  <form action="#" method="GET" class="formulariologin">
+  <form action="" method="GET" class="formulariologin" id= "formulario-login" onsubmit="enviarFormulario(event)">
     <fieldset>
       <label for="usuario">Usuario:</label>
-      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario">
+      <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" required>
     </fieldset>
     <fieldset>
       <label for="contraseña">Contraseña:</label>
@@ -30,9 +30,9 @@
     </fieldset>
     <fieldset>
       <label for="recuerdame">Recuérdame</label>
-      <input type="checkbox" name="recuerdame" id="recuerdame" required>
+      <input type="checkbox" name="recuerdame" id="recuerdame">
     </fieldset>
-    <input type="submit"  value="Acceder" id="enviar" onclick="sessionStorage.setItem('visitado','1'); redireccion_index()">
+    <input type="submit"  value="Acceder" id="enviar" >
 
   </form>
 

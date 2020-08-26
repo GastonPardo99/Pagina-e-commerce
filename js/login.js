@@ -5,8 +5,8 @@ function enviarFormulario(event){
     window.location.href = "index.html";
     
     let usuarioLog = {
-       nombre: document.getElementById("usuario").value,
-       password: document.getElementById("contraseña").value
+       nombre: document.getElementById("Usuario").value,
+       password: document.getElementById("Contraseña").value
     }; 
     let usuarioString = JSON.stringify(usuarioLog);
     localStorage.setItem("usuarioAndPass", usuarioString);

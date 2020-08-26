@@ -38,9 +38,81 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
-            //Muestro las categorías ordenadas
             showCategoriesList(categoriesArray);
         }
+    document.getElementById("sortByCostAsc").addEventListener("click", function(){
+        sortProductsAscendente();
+    });
+    document.getElementById("sortByCostDesc").addEventListener("click", function(){
+        sortProductsDescendente();
+    });
     hideSpinner();
     });
 });
+
+fetch(PRODUCTS_URL).then(respuesta => {
+    return respuesta.json();
+})
+    .then(respuesta => {
+    document.getElementById("buscador").addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("cat-list-container").innerHTML = "";
+    let precio_min = document.getElementById("precio_minimo").value;
+    let precio_max = document.getElementById("precio_maximo").value;
+
+    let htmlContentToAppend = "";
+
+    for (i = 0; i < respuesta.length; i++) {
+        if (respuesta[i].cost >= precio_min && respuesta[i].cost <= precio_max)  {
+                   
+            htmlContentToAppend += `
+                    <a href="category-info.html" class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="` + respuesta[i].imgSrc + `" alt="` + respuesta[i].description + `" class="img-thumbnail">
+                            </div>
+                            <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">`+ respuesta[i].name +`</h4>
+                                    <small class="text-muted">` + respuesta[i].soldCount + ` artículos</small>
+                                </div>
+                                <p class="precio">` + respuesta[i].cost + `</p>
+                                <p class="mb-1">` + respuesta[i].description + `</p>
+                            </div>
+                        </div>
+                    </a>
+                    `
+                }
+        
+                document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+            }
+        }
+    );
+    
+    
+});
+
+function sortProductsAscendente(){
+        categoriesArray.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1; }
+            return 0;
+        });
+        console.log(categoriesArray.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1; }
+            return 0;
+        }))
+}
+
+function sortProductsDescendente(){
+        categoriesArray.sort(function(a, b) {
+            if ( a.cost < b.cost){ return -1; }
+            if ( a.cost > b.cost ){ return 1; }
+            return 0;
+            
+        });
+ }
+    
+
+

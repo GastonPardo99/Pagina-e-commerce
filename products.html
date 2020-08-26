@@ -23,6 +23,22 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       </div>
     </nav>
+    <div>
+      <form action="#" id="buscador">
+        <fieldset>
+          <input  id="sortByCostAsc" type="button" value="Ordenar por precio ascendente">
+          <br>
+          <input  id="sortByCostDesc"type="button" value="Ordenar por precio descendente">
+          <label for="precio_minimo"></label>
+          <input class= "rango" type="text" value="" id="precio_minimo" placeholder="min">
+        </fieldset>
+        <fieldset>
+          <label for="precio_maximo" ></label>
+          <input class="rango" type="text" value="" id="precio_maximo" placeholder="max">
+        </fieldset>
+        <input class= "rango" type="submit" value="Filtrar por precio">
+      </form>
+    </div>
     <div class="container">
       <div class="row">
           <div class="list-group" id="cat-list-container">

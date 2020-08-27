@@ -26,10 +26,7 @@
     <div>
       <form action="#" id="buscador">
         <fieldset>
-          <input  id="sortByCostAsc" type="button" value="Ordenar por precio ascendente">
-          <br>
-          <input  id="sortByCostDesc"type="button" value="Ordenar por precio descendente">
-          <label for="precio_minimo"></label>
+        <label for="precio_minimo"></label>
           <input class= "rango" type="text" value="" id="precio_minimo" placeholder="min">
         </fieldset>
         <fieldset>
@@ -37,6 +34,16 @@
           <input class="rango" type="text" value="" id="precio_maximo" placeholder="max">
         </fieldset>
         <input class= "rango" type="submit" value="Filtrar por precio">
+        <fieldset>
+          <label for="sortByCostAsc"></label>
+          <input  id="sortByCostAsc" class="filtro" type="button" value="$ Asc.">
+          <label for="precio_minimo"></label>
+          <input  id="sortByCostDesc" class="filtro" type="button" value="$ Desc.">
+        </fieldset>
+        <fieldset>
+          <label for="sortByValor"></label>
+          <input id="sortByValor" class="filtro" type="button" value="Más vendidos">
+        </fieldset>
       </form>
     </div>
     <div class="container">

@@ -216,5 +216,18 @@ a.custom-card:hover {
 
 .rango{
   margin-left: 85%;
-  margin-top: 1%;
+  margin-top: 1.5%;
+}
+
+.filtro{
+  margin-left: 3%;
+  margin-top: 0.5%;
+}
+
+#sortByCostDesc{
+  margin-left: 0.3%;
+}
+
+#precio_maximo{
+  margin-top: 0.5%;
 }

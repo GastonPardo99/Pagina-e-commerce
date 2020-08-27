@@ -32,6 +32,38 @@ function showCategoriesList(array){
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
+
+function sortProductsAscendente(array){
+    let productos = []
+    productos = categoriesArray.sort(function(a, b) {
+        if ( a.cost > b.cost ){ return -1; }
+        if ( a.cost < b.cost ){ return 1; }
+        return 0;
+    });
+    showCategoriesList(categoriesArray)
+}
+
+function sortProductsDescendente(array){
+    let productos2 = []
+    productos2 = categoriesArray.sort(function(a, b) {
+        if ( a.cost < b.cost){ return -1; }
+        if ( a.cost > b.cost ){ return 1; }
+        return 0; 
+    });
+    showCategoriesList(categoriesArray)
+}
+
+function sortProductsValor(array){
+    let valor = []
+    valor = categoriesArray.sort(function(a, b) {
+        if ( a.soldCount > b.soldCount){ return -1; }
+        if ( a.soldCount <  b.soldCount ){ return 1; }
+        return 0; 
+    });
+    showCategoriesList(categoriesArray)
+}
+
+
 document.addEventListener("DOMContentLoaded", function(e){
     showSpinner();
     getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -45,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
     document.getElementById("sortByCostDesc").addEventListener("click", function(){
         sortProductsDescendente();
+    });
+    document.getElementById("sortByValor").addEventListener("click", function(){
+        sortProductsValor();
     });
     hideSpinner();
     });
@@ -92,27 +127,9 @@ fetch(PRODUCTS_URL).then(respuesta => {
     
 });
 
-function sortProductsAscendente(){
-        categoriesArray.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
-            return 0;
-        });
-        console.log(categoriesArray.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
-            return 0;
-        }))
-}
 
-function sortProductsDescendente(){
-        categoriesArray.sort(function(a, b) {
-            if ( a.cost < b.cost){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
-            return 0;
-            
-        });
- }
+
+
     
 
 

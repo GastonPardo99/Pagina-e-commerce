@@ -29,7 +29,7 @@ function showCategoriesList(array){
         </div>
         `
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("car-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -91,7 +91,7 @@ fetch(PRODUCTS_URL).then(respuesta => {
     .then(respuesta => {
     document.getElementById("buscador").addEventListener("submit", e => {
     e.preventDefault();
-    document.getElementById("cat-list-container").innerHTML = "";
+    document.getElementById("car-list-container").innerHTML = "";
     let precio_min = document.getElementById("precio_minimo").value;
     let precio_max = document.getElementById("precio_maximo").value;
 
@@ -119,7 +119,7 @@ fetch(PRODUCTS_URL).then(respuesta => {
                     `
                 }
         
-                document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+                document.getElementById("car-list-container").innerHTML = htmlContentToAppend;
             }
         }
     );
@@ -129,7 +129,10 @@ fetch(PRODUCTS_URL).then(respuesta => {
 
 
 
-
-    
+document.getElementById("searching").addEventListener("keyup", function(e){
+    let searchInput = document.getElementById("searching").value
+    let searchArray = categoriesArray.filter(elemento => (elemento.name.includes(searchInput)) || (elemento.description.includes(searchInput)));
+    showCategoriesList(searchArray);
+});
 
 

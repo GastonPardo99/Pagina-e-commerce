@@ -202,10 +202,11 @@ a.custom-card:hover {
 .nombre_auto{
   font-size: 35px;
   font-style: italic;
+  color: black
 }
 
 .precio{
-  font-size: 22px;
+  font-size: 35px;
   color: black;
   font: bold;
 }
@@ -231,3 +232,51 @@ a.custom-card:hover {
 #precio_maximo{
   margin-top: 0.5%;
 }
+
+#titulo_Comentario{
+  margin-top: 30%;
+  margin-left: 1%;
+}
+
+
+#imagen_principal{
+  width: 20%;
+  margin-bottom: 3%;
+  border: double 4px;
+}
+
+#galeria_imagenes{
+  margin-top: 10%;
+  margin-left: 33%;
+  margin-bottom: 2%;
+  color: black;
+  font-size: 35px;
+  text-align: center;
+  background: rgb(253, 240, 240);
+  width: 30%;
+  border-style: ridge;
+}
+
+.imagenesgaleria{
+  margin-left: 20%;
+  margin-top: 5%;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.product_info_principal{
+  margin-left: 3%;
+  margin-top: 4%;
+}
+
+#nombre_producto_info{
+  font-size: 70px;
+}
+
+.descripcion_product_info{
+  font-size: 23px;
+  padding: 0.4%;
+  color: black;
+  background: rgb(247, 241, 241);
+}
+

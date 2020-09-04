@@ -10,6 +10,7 @@ function showCategoriesList(array){
         let category = array[i];
 
         htmlContentToAppend += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -27,11 +28,13 @@ function showCategoriesList(array){
                 </div>
             </div>
         </div>
+        </a>    
         `
 
         document.getElementById("car-list-container").innerHTML = htmlContentToAppend;
     }
 }
+
 
 function sortProductsAscendente(array){
     let productos = []

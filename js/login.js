@@ -8,6 +8,7 @@ function enviarFormulario(event){
        nombre: document.getElementById("Usuario").value,
        password: document.getElementById("Contraseña").value
     }; 
+    
     let usuarioString = JSON.stringify(usuarioLog);
     localStorage.setItem("usuarioAndPass", usuarioString);
     

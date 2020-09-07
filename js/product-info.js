@@ -109,3 +109,24 @@ document.addEventListener("DOMContentLoaded", function(e){
     hideSpinner();
     });
 });
+
+function dejarComentario(){
+    let htmlContentToAppendNewComentary = `
+    <form>
+        <fieldset>
+            <label for="User">User:</label>
+            <input type="text" name="usuario" id="User" required>
+        </fieldset>
+        <fieldset>
+            <label for="Rating">Puntuacion:</label>
+            <input type="number" name="puntuacion" id="Rating" required>
+        </fieldset>
+        <fieldset>
+            <label for="Nuevo_comentario">Comentario:</label>
+            <textarea name="opinion" id="Nuevo_comentario" placeholder="Ingrese comentario" rows="4" cols="50" required></textarea>
+        </fieldset>
+        <input type="submit"  value="Enviar opinión" id="enviar_comentario" >
+    </form>
+    `
+    document.getElementById("seccion_comentario").innerHTML = htmlContentToAppendNewComentary
+}

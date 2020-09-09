@@ -110,23 +110,42 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+let user = JSON.parse(localStorage.getItem("usuarioAndPass"))
+
 function dejarComentario(){
     let htmlContentToAppendNewComentary = `
-    <form>
-        <fieldset>
-            <label for="User">User:</label>
-            <input type="text" name="usuario" id="User" required>
-        </fieldset>
+    <div class="comentario_creado" >
+    <form class="comentario_contenido" onsubmit="enviarComentario(event)">
+        <p>User: `+ user.nombre + ` </p>
         <fieldset>
             <label for="Rating">Puntuacion:</label>
-            <input type="number" name="puntuacion" id="Rating" required>
+            <input type="number" name="puntuacion" id="Rating" min= "1" max = "5"  required>
         </fieldset>
         <fieldset>
             <label for="Nuevo_comentario">Comentario:</label>
-            <textarea name="opinion" id="Nuevo_comentario" placeholder="Ingrese comentario" rows="4" cols="50" required></textarea>
+            <textarea name="opinion" id="Nuevo_comentario" placeholder="Ingrese comentario..." rows="4" cols="50" required></textarea>
         </fieldset>
-        <input type="submit"  value="Enviar opinión" id="enviar_comentario" >
+        <input type="submit"  value="Enviar comentario" id="enviar_comentario" >
     </form>
+    </div>
     `
-    document.getElementById("seccion_comentario").innerHTML = htmlContentToAppendNewComentary
+    document.getElementById("seccion_comentario").innerHTML += htmlContentToAppendNewComentary
+}
+
+function enviarComentario(event){
+    event.preventDefault();
+    let rating = document.getElementById("Rating").value
+    let comentario = document.getElementById("Nuevo_comentario").value
+    let tiempo = new Date()
+    let fecha = tiempo.getUTCFullYear().toString() + "-" + (tiempo.getUTCMonth() + 1).toString() + "-" + tiempo.getUTCDate().toString() + " " + tiempo.getUTCHours() + ":" + tiempo.getUTCMinutes() + ":" + tiempo.getUTCSeconds()
+
+    let Nuevocomentario = {
+        score: rating,
+        description: comentario,
+        user: user.nombre,
+        dateTime: fecha
+    }
+
+    productComentary.push(Nuevocomentario)
+    showComentary(productComentary)
 }

@@ -281,3 +281,28 @@ a.custom-card:hover {
   border: solid 0.1px;
 }
 
+#boton_crear_comentario{
+  margin-top: 3%;
+  margin-left: 40%;
+  width: 25%;
+  padding: 0.5%;
+  border: outset;
+}
+
+.comentario_creado{
+  margin-top: 4%;
+  margin-left: 3%;
+  border: solid 1px;
+  width: 26%;
+  border-radius: 5px;
+}
+
+.comentario_contenido{
+  padding: 2%;
+}
+
+#enviar_comentario{
+  margin-top: 2%;
+  margin-left: 33%;
+}
+

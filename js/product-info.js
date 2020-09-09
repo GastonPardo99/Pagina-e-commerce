@@ -1,13 +1,12 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 
 var productInfoArray = [];
 var productComentary = [];
+var productRelacionados = [];
 let parametros = new URLSearchParams(window.location.search);
 let name = parametros.get('producto');
 
 
+// Funcion de mostrar la informacion del producto solicitado
 function showProductInfo(array){
 
     let htmlContentToAppend = "";
@@ -53,19 +52,7 @@ function showProductInfo(array){
 }
 }
 
-document.addEventListener("DOMContentLoaded", function(e){
-    showSpinner();
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            productInfoArray = resultObj.data;
-            showProductInfo(productInfoArray);
-        }
-    hideSpinner();
-    });
-});
-
-
+//Funcion de mostrar los comentarios sobre el producto
 function showComentary(array){
 
     let htmlContentToAppendComentaryTitle = "";
@@ -95,21 +82,72 @@ function showComentary(array){
         document.getElementById("car2-list-container").innerHTML = htmlContentToAppendComentaryTitle + htmlContentToAppendComentary;
 }
 
+//Funcion de mostrar los productos relacionados al artículo seleccionado
+function showProductosRelacionados(array){
+    let htmlContentToAppendRelacionados1 = "";
+    let htmlContentToAppendRelacionados2 = "";
+
+    htmlContentToAppendRelacionados1 += `
+    <div class="espacio_relacionados">
+    <a href="product-info.html?producto= ` + array[1].name + `" class="list-group-item list-group-item-action">
+        <div class="row">
+            <div class="col">
+                     <img src="` + array[1].imgSrc + `" class="img-relacionados">
+                    <h1> ` + array[1].name + ` </h1>
+                    <h4 class="nombre_auto">`+ array[1].cost +`</h4>
+            </div>
+        </div>
+    </a>
+    </div>
+
+    `
+
+    htmlContentToAppendRelacionados2 += `
+    <div class="espacio_relacionados">
+    <a href="product-info.html?producto= ` + array[3].name + `" class="list-group-item list-group-item-action" >
+        <div class="row">
+            <div class="col">
+                 <img src="` + array[3].imgSrc + `" class="img-relacionados">
+                 <h1> ` + array[3].name + ` </h1>
+                 <h4 class="nombre_auto">`+ array[3].cost +`</h4>
+            </div>
+        </div>
+    </a>
+    </div>
+    
+    `
+    document.getElementById("Productos_relacionados").innerHTML = htmlContentToAppendRelacionados1 + htmlContentToAppendRelacionados2;
+}
 
 
-
+//Cargar los JSON que tienen la información a mostrar
 document.addEventListener("DOMContentLoaded", function(e){
     showSpinner();
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productInfoArray = resultObj.data;
+            showProductInfo(productInfoArray);
+        }
+    });
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
             productComentary = resultObj.data;
             showComentary(productComentary);
         }
+    });
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productRelacionados = resultObj.data;
+            showProductosRelacionados(productRelacionados);
+        }
     hideSpinner();
     });
 });
 
+//Realizar formulario dinámico. Toma el nombre del usuario, solicita agregar una puntuacion al artículo y un comentario
 let user = JSON.parse(localStorage.getItem("usuarioAndPass"))
 
 function dejarComentario(){

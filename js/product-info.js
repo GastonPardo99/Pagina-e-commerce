@@ -116,13 +116,13 @@ function dejarComentario(){
     let htmlContentToAppendNewComentary = `
     <div class="comentario_creado" >
     <form class="comentario_contenido" onsubmit="enviarComentario(event)">
-        <p>User: `+ user.nombre + ` </p>
+        <p><b>User:</b> `+ user.nombre + ` </p>
         <fieldset>
-            <label for="Rating">Puntuacion:</label>
+            <label for="Rating"><b>Puntuacion:</b></label>
             <input type="number" name="puntuacion" id="Rating" min= "1" max = "5"  required>
         </fieldset>
         <fieldset>
-            <label for="Nuevo_comentario">Comentario:</label>
+            <label for="Nuevo_comentario"><b>Comentario:</b></label>
             <textarea name="opinion" id="Nuevo_comentario" placeholder="Ingrese comentario..." rows="4" cols="50" required></textarea>
         </fieldset>
         <input type="submit"  value="Enviar comentario" id="enviar_comentario" >

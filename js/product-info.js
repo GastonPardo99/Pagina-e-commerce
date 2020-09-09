@@ -94,7 +94,7 @@ function showProductosRelacionados(array){
             <div class="col">
                      <img src="` + array[1].imgSrc + `" class="img-relacionados">
                     <h1> ` + array[1].name + ` </h1>
-                    <h4 class="nombre_auto">`+ array[1].cost +`</h4>
+                    <h4 class="nombre_auto">`+ array[1].cost +` `+ array[1].currency +`</h4>
             </div>
         </div>
     </a>
@@ -109,7 +109,7 @@ function showProductosRelacionados(array){
             <div class="col">
                  <img src="` + array[3].imgSrc + `" class="img-relacionados">
                  <h1> ` + array[3].name + ` </h1>
-                 <h4 class="nombre_auto">`+ array[3].cost +`</h4>
+                 <h4 class="nombre_auto">`+ array[3].cost +`  `+ array[3].currency +`</h4>
             </div>
         </div>
     </a>

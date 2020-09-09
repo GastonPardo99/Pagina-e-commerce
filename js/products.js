@@ -10,7 +10,7 @@ function showCategoriesList(array){
         let category = array[i];
 
         htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <a href="product-info.html?producto= ` + category.name + `" class="list-group-item list-group-item-action">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -104,7 +104,7 @@ fetch(PRODUCTS_URL).then(respuesta => {
         if (respuesta[i].cost >= precio_min && respuesta[i].cost <= precio_max)  {
                    
             htmlContentToAppend += `
-                    <a href="category-info.html" class="list-group-item list-group-item-action">
+                    <a href="product-info.html" class="list-group-item list-group-item-action" >
                         <div class="row">
                             <div class="col-3">
                                 <img src="` + respuesta[i].imgSrc + `" alt="` + respuesta[i].description + `" class="img-thumbnail">
@@ -137,5 +137,4 @@ document.getElementById("searching").addEventListener("keyup", function(e){
     let searchArray = categoriesArray.filter(elemento => (elemento.name.includes(searchInput)) || (elemento.description.includes(searchInput)));
     showCategoriesList(searchArray);
 });
-
 

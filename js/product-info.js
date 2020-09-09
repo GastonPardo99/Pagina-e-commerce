@@ -4,6 +4,9 @@
 
 var productInfoArray = [];
 var productComentary = [];
+let parametros = new URLSearchParams(window.location.search);
+let name = parametros.get('producto');
+
 
 function showProductInfo(array){
 
@@ -14,7 +17,7 @@ function showProductInfo(array){
             <div class="row">
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="nombre_auto" id="nombre_producto_info">`+ array.name +` </h4>
+                        <h4 class="nombre_auto" id="nombre_producto_info"> ` + name + ` </h4>
                     </div>    
                     <div>
                         <img src="` + array.images[3] + `" id="imagen_principal">
@@ -45,10 +48,7 @@ function showProductInfo(array){
   
         ` 
 
-        
-
-
-        document.getElementById("car-list-container").innerHTML = htmlContentToAppend + htmlContentToAppendImages ;
+        document.getElementById("car-list-container").innerHTML = htmlContentToAppend + htmlContentToAppendImages;
 
 }
 }

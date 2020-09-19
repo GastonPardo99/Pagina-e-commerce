@@ -1,7 +1,7 @@
 
 function enviarFormulario(event){
     event.preventDefault();
-    sessionStorage.setItem("logueado", "true");
+    sessionStorage.setItem("logged", "true");
     window.location.href = "index.html";
     
     let usuarioLog = {

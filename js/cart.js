@@ -29,11 +29,11 @@ function showCarrito(array){
                 <fieldset class="datos_envio">
                     <label name="Tipo de Envo" value=""><b>Tipo de envío (Seleccionar)</b></label>
                     <br>
-                    <input id="envio" type="radio" name="Tipo de Envio"   onclick="total1()"> Standard (12 a 15 días)- 5% 
+                    <input id="envio" type="radio" name="Tipo de Envio"   onclick="total(1.05)"> Standard (12 a 15 días)- 5% 
                     <br>
-                    <input id="envio2" type="radio" name="Tipo de Envio"  onclick="total2()"> Express (5 a 8 días)- 7% 
+                    <input id="envio2" type="radio" name="Tipo de Envio"  onclick="total(1.07)"> Express (5 a 8 días)- 7% 
                     <br>
-                    <input id="envio3" type="radio" name="Tipo de Envio"  onclick="total3()"> Premium(12 a 15 días)- 15% 
+                    <input id="envio3" type="radio" name="Tipo de Envio"  onclick="total(1.15)"> Premium(12 a 15 días)- 15% 
                 </fieldset>
 
                 <p id="total" class="costos">Total (UYU) = <p>
@@ -81,26 +81,9 @@ function subtotal() {
     document.getElementById("subtotal").innerHTML = "Subtotal : " + subtotal
 }
 
-function total1(){
+function total(envio){
     let cantidad = document.getElementById("cantidad_producto").value
     let precio = document.getElementById("precio_producto").value
-    let envio = 1.05
-    let total = cantidad * precio * envio 
-    document.getElementById("total").innerHTML = "Total (UYU) = " + total
-}
-
-function total2(){
-    let cantidad = document.getElementById("cantidad_producto").value
-    let precio = document.getElementById("precio_producto").value
-    let envio = 1.07
-    let total = cantidad * precio * envio 
-    document.getElementById("total").innerHTML = "Total (UYU) = " + total
-}
-
-function total3(){
-    let cantidad = document.getElementById("cantidad_producto").value
-    let precio = document.getElementById("precio_producto").value
-    let envio = 1.15
     let total = cantidad * precio * envio 
     document.getElementById("total").innerHTML = "Total (UYU) = " + total
 }

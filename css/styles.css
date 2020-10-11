@@ -351,3 +351,13 @@ a.custom-card:hover {
   font-weight: bold;
   font-size: 25px;
 }
+
+.imagen_carrito{
+  width: 80%;
+} 
+
+.tabla{
+  width: 34%;
+  height: 34%;
+  text-align: center;
+}

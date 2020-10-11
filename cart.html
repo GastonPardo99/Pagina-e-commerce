@@ -23,16 +23,86 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a> 
     </div>
   </nav>
-  
-  <h1 id="titulo_carrito">Mi carrito</h1>
-
-  <div class="container p-5" id="carrito_info">
-      
+  <div class="text-center p-4">
+    <h2>Tu Carrito</h2>
+    <p class="lead">Verás aquí todos tus articulos seleccionados</p>
   </div>
+  <br>
+  <div id="carrito"></div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-8 order-md-1">
+  <div class="container">
+          <hr class="mb-4">
+          <h5 class="mb-3">Tipos de envio</h5>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+              <label class="custom-control-label" for="goldradio">Premium (2-5 días) (15%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="premiumradio">Express (5-8 días) (7%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="standardradio">Standard (12-15 días) (5%)</label>
+            </div>
+            
+          </div>
+          <hr class="mb-4">
+          <h4 class="mb-3">Costos</h4>
+          <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0" id="pre">Subtotal</h6>
+                  
+                </div>
+                <span class="text-muted" id="subtotales">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">P0rcentaje</h6>
+                  
+                </div>
+                <span class="text-muted" id="comissionText">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (USD)</span>
+                <strong id="total">-</strong>
+              </li>
+            </ul>
+            
+            <hr class="mb-4">
+              <h5 class="mb-3">Formas de pago</h5>
+              <div class="d-block my-3"></div>
+                <div class="custom-control custom-radio">
+                  <input id="hola" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+                  <label class="custom-control-label" for="hola">Tarjeta de credito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="hola2" name="publicationType" type="radio" class="custom-control-input" required="">
+                  <label class="custom-control-label" for="hola2">Transferencia bancaria</label>
+                </div>
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg" type="submit" onclick="compraExitosa()">Comprar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
   <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>

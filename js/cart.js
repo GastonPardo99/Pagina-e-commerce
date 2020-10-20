@@ -1,5 +1,10 @@
 var articulosArray = [];
-
+var cambioADolar = 0.025
+let envio ={
+    premium: 1.15,
+    express: 1.07,
+    standard: 1.05
+}
 
 function showArticulosCarrito(array){
     let htmlContentToAppend = "";
@@ -8,7 +13,7 @@ function showArticulosCarrito(array){
 
         if(article.currency === "UYU"){
 
-             article.unitCost = 0.025 * article.unitCost 
+             article.unitCost = cambioADolar * article.unitCost 
         }
         
         htmlContentToAppend += `<div class="container mb-4">
@@ -53,6 +58,14 @@ function compraExitosa(){
     alert(mensaje)
 }
 
+function envioTotal(tipoenvio){
+    subtotales = document.getElementById("subtotales").value
+    total = subtotales * tipoenvio 
+    document.getElementById("totales").innerHTML = total.toFixed(2)
+    document.getElementById("porcentaje").innerHTML = (tipoenvio * 100 - 100).toFixed(0)
+    
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
     
     getJSONData(CART_2).then(function(resultObj){
@@ -69,9 +82,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             for (let i=0; i<articulosArray.length;i++){
                 // subtotales += document.getElementById("subtotal"+ i).value;
                 total += parseInt(document.getElementById("subtotal"+ i).value); 
-                console.log(subtotales);
             }
-            document.getElementById("subtotales").innerHTML= total;
+            document.getElementById("subtotales").value = total;
         }
         
         function costo() {

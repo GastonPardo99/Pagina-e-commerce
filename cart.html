@@ -40,15 +40,15 @@
           <h5 class="mb-3">Tipos de envio</h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input"  required="" onclick="envioTotal(envio.premium)">
               <label class="custom-control-label" for="goldradio">Premium (2-5 días) (15%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.express)">
               <label class="custom-control-label" for="premiumradio">Express (5-8 días) (7%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.standard)">
               <label class="custom-control-label" for="standardradio">Standard (12-15 días) (5%)</label>
             </div>
             
@@ -58,21 +58,21 @@
           <ul class="list-group mb-3">
               <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0" id="pre">Subtotal</h6>
+                  <h6 class="my-0" id="pre">Subtotal (USD)</h6>
                   
                 </div>
-                <span class="text-muted" id="subtotales">-</span>
+                <input type="number" class="text-muted" id="subtotales" value="" disabled>
               </li>
               <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0">P0rcentaje</h6>
+                  <h6 class="my-0">Porcentaje (%)</h6>
                   
                 </div>
-                <span class="text-muted" id="comissionText">-</span>
+                <span class="text-muted" id="porcentaje">-</span>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Total (USD)</span>
-                <strong id="total">-</strong>
+                <strong id="totales">-</strong>
               </li>
             </ul>
             

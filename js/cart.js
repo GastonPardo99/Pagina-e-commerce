@@ -117,3 +117,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 })
 
+function guardarCambios(){
+    console.log(document.getElementById("mes-tarjeta").value)
+    if ((!document.getElementById("propietario").value == "") && (!document.getElementById("numero-tarjeta").value == "") && (!document.getElementById("cvv").value == "") && (!document.getElementById("mes-tarjeta").value == "00") && (!document.getElementById("año-tarjeta").value == "00")) {
+        window.location.href = "cart.html"
+    } else {
+        alert ("llenar bien los datos")
+    }
+}
+

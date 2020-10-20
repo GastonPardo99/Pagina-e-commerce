@@ -361,3 +361,15 @@ a.custom-card:hover {
   height: 34%;
   text-align: center;
 }
+
+.modal-form{
+  width: 50%;
+}
+
+.label-modal {
+  font-weight: bolder;
+}
+
+#cvv {
+  width: 10%;
+}

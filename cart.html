@@ -104,8 +104,8 @@
       <div class="modal-body">
       <form action="" method="GET" id="formaPago" onsubmit="validar(event)">
         <fieldset>
-          <label for="propietario" class="label-modal">Propietario</label>
-          <input type="text" id="propietario" class="modal-form" name="propietario">
+          <!-- <label for="propietario" class="label-modal">Propietario</label>
+          <input type="text" id="propietario" class="modal-form" name="propietario" required> -->
         </fieldset>
         <fieldset>
           <label for="numero-tarjeta" class="label-modal">Número de Tarjeta</label>
@@ -163,11 +163,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <label for="numero-cuenta" class="label-modal">Número de cuenta</label>
-        <input type="number" id="numero-cuenta" class="modal-form" name="nroCuenta" form="formaPago">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       <button type="submit" class="btn btn-primary" form="formaPago">Guardar cambios</button>
-      </form>
+        <form action="" method="GET" onsubmit="validar1(event)">
+          <fieldset>
+            <label for="nroCuenta" class="label-modal">Número de cuenta</label>
+            <input type="number" id="nroCuenta" class="modal-form" name="nroCuenta">
+          </fieldset>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
     </div>
   </div>
 </div>

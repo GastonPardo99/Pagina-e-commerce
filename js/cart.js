@@ -66,9 +66,10 @@ function envioTotal(tipoenvio){
     
 }
 
+let checkeo = false
 function validar(event){
 
-event.preventDefault();
+
 let creditInput = document.getElementById("numero-tarjeta").value;
 let creditExpress = /^\d{16}$/;
 let cvvInput = document.getElementById("cvv").value;
@@ -77,21 +78,26 @@ let monthInput = document.getElementById("mesVencimiento").value;
 let monthExpress = /^(0[1-9])|(1[0-2])$/;
 let yearInput = document.getElementById("añoVencimiento").value;
 let yearExpress = /^\d{4}$/;
+let bancariaInput = document.getElementById("nroCuenta").value;
+let bancariaExpress = /^\d{7}$/;
 
 if (!creditExpress.test(creditInput)){
     alert("Información invalida. Deben ser 16 dígitos");
     document.getElementById("numero-tarjetaCheck").innerHTML = "❌"
+    event.preventDefault();
 } else {
     document.getElementById("numero-tarjetaCheck").innerHTML = "✅"
 }
 if (!cvvExpress.test(cvvInput)){
     alert("Información invalida. Deben ser 3 dígitos");
     document.getElementById("cvvCheck").innerHTML = "❌"
+    event.preventDefault();
 } else {
     document.getElementById("cvvCheck").innerHTML = "✅"
 }
 if (!monthExpress.test(monthInput)){
     alert("Información invalida. Debe seleccionar un mes");
+    event.preventDefault();
     // document.getElementById("mesVencimientoCheck").innerHTML = "❌"
 } else {
     // document.getElementById("mesVencimientoCheck").innerHTML = "✅"
@@ -99,10 +105,25 @@ if (!monthExpress.test(monthInput)){
 if (!yearExpress.test(yearInput)){
     alert("Información invalida. Debe seleccionar un año");
     document.getElementById("añoVencimientoCheck").innerHTML = "❌"
+    event.preventDefault();
 } else {
     document.getElementById("añoVencimientoCheck").innerHTML = "✅"
+    return true
 }
-return true
+
+}
+
+function validar1(event){
+    let bancariaInput = document.getElementById("nroCuenta").value;
+    let bancariaExpress = /^\d{7}$/;
+
+    if (!bancariaExpress.test(bancariaInput)){
+        alert("Información invalida. Debe ingresar 7 digitos");
+        event.preventDefault();
+    } else {
+        return true
+    }
+
 }
 
 

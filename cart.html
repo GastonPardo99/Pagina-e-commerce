@@ -102,22 +102,22 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="">
+      <form action="" method="GET" id="formaPago" onsubmit="validar(event)">
         <fieldset>
           <label for="propietario" class="label-modal">Propietario</label>
-          <input type="text" id="propietario" class="modal-form" >
+          <input type="text" id="propietario" class="modal-form" name="propietario">
         </fieldset>
         <fieldset>
           <label for="numero-tarjeta" class="label-modal">Número de Tarjeta</label>
-          <input type="text"  id="numero-tarjeta" class="modal-form" >
+          <input type="text"  id="numero-tarjeta" class="modal-form"  name="cardNumber"><span id="numero-tarjetaCheck"></span>
         </fieldset>
         <fieldset>
           <label for="cvv" class="label-modal">CVV</label>
-          <input type="text"  id="cvv" class="modal-form" >
+          <input type="text"  id="cvv" class="modal-form" name="cvv"><span id="cvvCheck"></span>
         </fieldset>
         <fieldset>
-          <label class="label-modal">Fecha de vencimiento</label>
-          <select id="mes-tarjeta"> 
+          <label class="label-modal" name>Fecha de vencimiento</label>
+          <select id="mesVencimiento" name="mesVencimiento"> 
               <option value="" selected disabled>Mes</option>
               <option value="01">Ene</option>
               <option value="02">Feb</option>
@@ -132,18 +132,18 @@
               <option value="11">Nov</option>
               <option value="12">Dic</option>
           </select>
-          <select id="año-tarjeta">
+          <select id="añoVencimiento" name="añoVencimiento">
               <option value="" selected disabled>Año</option>
-              <option value="16"> 2020</option>
-              <option value="17"> 2021</option>
-              <option value="18"> 2022</option>
-              <option value="19"> 2023</option>
-              <option value="20"> 2024</option>
-              <option value="21"> 2025</option>
-          </select>
+              <option value="2020"> 2020</option>
+              <option value="2021"> 2021</option>
+              <option value="2022"> 2022</option>
+              <option value="2023"> 2023</option>
+              <option value="2024"> 2024</option>
+              <option value="2025"> 2025</option>
+          </select><span id="añoVencimientoCheck"></span>
         </fieldset>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       <button type="button" class="btn btn-primary" onclick="guardarCambios()">Guardar cambios</button>
+       <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </form> 
     </div>
   </div>
@@ -163,30 +163,10 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="">
-        <fieldset>
-          <label for="numero-cuenta" class="label-modal">Número de cuenta</label>
-          <input type="number" id="numero-cuenta" class="modal-form" >
-        </fieldset>
-        <fieldset>
-          <label for="propietario-cuenta" class="label-modal">Propietario</label>
-          <input type="text"  id="propietario-cuenta" class="modal-form" >
-        </fieldset>
-        <fieldset>
-          <label for="pais-cuenta" class="label-modal">País</label>
-          <input type="text"  id="pais-cuenta" class="modal-form" >
-        </fieldset>
-        <fieldset>
-          <label for="codigo-postal-cuenta" class="label-modal">Código postal</label>
-          <input type="number"  id="codigo-postal-cuenta" class="modal-form" >
-        </fieldset>
-        <fieldset>
-          <label for="direccion-cuenta" class="label-modal">Dirección</label>
-          <input type="number"  id="direccion-cuenta" class="modal-form" >
-        </fieldset>
-        
+        <label for="numero-cuenta" class="label-modal">Número de cuenta</label>
+        <input type="number" id="numero-cuenta" class="modal-form" name="nroCuenta" form="formaPago">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       <button type="button" class="btn btn-primary">Guardar cambios</button>
+       <button type="submit" class="btn btn-primary" form="formaPago">Guardar cambios</button>
       </form>
     </div>
   </div>

@@ -66,6 +66,47 @@ function envioTotal(tipoenvio){
     
 }
 
+function validar(event){
+
+event.preventDefault();
+let creditInput = document.getElementById("numero-tarjeta").value;
+let creditExpress = /^\d{16}$/;
+let cvvInput = document.getElementById("cvv").value;
+let cvvExpress = /^\d{3}$/;
+let monthInput = document.getElementById("mesVencimiento").value;
+let monthExpress = /^(0[1-9])|(1[0-2])$/;
+let yearInput = document.getElementById("añoVencimiento").value;
+let yearExpress = /^\d{4}$/;
+
+if (!creditExpress.test(creditInput)){
+    alert("Información invalida. Deben ser 16 dígitos");
+    document.getElementById("numero-tarjetaCheck").innerHTML = "❌"
+} else {
+    document.getElementById("numero-tarjetaCheck").innerHTML = "✅"
+}
+if (!cvvExpress.test(cvvInput)){
+    alert("Información invalida. Deben ser 3 dígitos");
+    document.getElementById("cvvCheck").innerHTML = "❌"
+} else {
+    document.getElementById("cvvCheck").innerHTML = "✅"
+}
+if (!monthExpress.test(monthInput)){
+    alert("Información invalida. Debe seleccionar un mes");
+    // document.getElementById("mesVencimientoCheck").innerHTML = "❌"
+} else {
+    // document.getElementById("mesVencimientoCheck").innerHTML = "✅"
+}
+if (!yearExpress.test(yearInput)){
+    alert("Información invalida. Debe seleccionar un año");
+    document.getElementById("añoVencimientoCheck").innerHTML = "❌"
+} else {
+    document.getElementById("añoVencimientoCheck").innerHTML = "✅"
+}
+return true
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
     
     getJSONData(CART_2).then(function(resultObj){

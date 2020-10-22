@@ -40,7 +40,7 @@ function showArticulosCarrito(array){
                                 </tr>
                                 <tr>
                                 <td colspan="4"></td>
-                                <td colspan="2">SUBTOTAL (USD) : <input type="number" id="subtotal` + i + `" disabled></td>
+                                <td colspan="2">SUBTOTAL (USD) : <span id="subtotal` + i + `"></span></td>
                             </tr>
                                 `
         
@@ -59,7 +59,7 @@ function compraExitosa(){
 }
 
 function envioTotal(tipoenvio){
-    subtotales = document.getElementById("subtotales").value
+    subtotales = document.getElementById("subtotales").textContent
     total = subtotales * tipoenvio 
     document.getElementById("totales").innerHTML = total.toFixed(2)
     document.getElementById("porcentaje").innerHTML = (tipoenvio * 100 - 100).toFixed(0)
@@ -143,9 +143,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             var total = 0;
             for (let i=0; i<articulosArray.length;i++){
                 // subtotales += document.getElementById("subtotal"+ i).value;
-                total += parseInt(document.getElementById("subtotal"+ i).value); 
+                total += parseInt(document.getElementById("subtotal"+ i).textContent); 
             }
-            document.getElementById("subtotales").value = total;
+            document.getElementById("subtotales").innerHTML = total;
         }
         
         function costo() {
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 var article = articulosArray[i];
             var precio   = article.unitCost;
             var cuenta = parseInt(cantidad) * precio;
-            document.getElementById("subtotal"+i).value = cuenta;
+            document.getElementById("subtotal"+i).textContent = cuenta;
                 
             }         
             

@@ -35,24 +35,29 @@
 
   <div class="row justify-content-md-center">
     <div class="col-md-8 order-md-1">
-  <div class="container">
+      <div>
           <hr class="mb-4">
-          <h5 class="mb-3">Tipos de envio</h5>
+          <form action="" method="GET" id="envio">
+          <h4 class="mb-3">Tipos de envio</h5>
           <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input"  required="" onclick="envioTotal(envio.premium)">
-              <label class="custom-control-label" for="goldradio">Premium (2-5 días) (15%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.express)">
-              <label class="custom-control-label" for="premiumradio">Express (5-8 días) (7%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.standard)">
+            <fieldset class="custom-control custom-radio">
+              <input id="premiumradio" name="tipoEnvio" value="premium" type="radio" class="custom-control-input"  required="" onclick="envioTotal(envio.premium)">
+              <label class="custom-control-label" for="premiumradio">Premium (2-5 días) (15%)</label>
+            </fieldset>
+            <fieldset class="custom-control custom-radio">
+              <input id="expressradio" name="tipoEnvio" value="express" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.express)">
+              <label class="custom-control-label" for="expressradio">Express (5-8 días) (7%)</label>
+            </fieldset>
+            <fieldset class="custom-control custom-radio">
+              <input id="standardradio" name="tipoEnvio" value="standard" type="radio" class="custom-control-input" required="" onclick="envioTotal(envio.standard)">
               <label class="custom-control-label" for="standardradio">Standard (12-15 días) (5%)</label>
+            </fieldset>
+            <fieldset>
+              <label for="direccionEnvio">Dirección : </label>
+              <input id="direccionEnvio" name="direccionEnvio" value="" type="text" required>
             </div>
-            
-          </div>
+          </form>    
+      </div>
           <hr class="mb-4">
           <h4 class="mb-3">Costos</h4>
           <ul class="list-group mb-3">
@@ -61,7 +66,7 @@
                   <h6 class="my-0" id="pre">Subtotal (USD)</h6>
                   
                 </div>
-                <span class="text-muted" id="subtotales"></span>
+                <span class="text-muted" id="subtotales">-</span>
               </li>
               <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
@@ -88,10 +93,12 @@
                   <label class="custom-control-label" for="hola2">Transferencia bancaria</label>
                 </div>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg" type="submit" onclick="compraExitosa()">Comprar</button>
+          <button class="btn btn-primary btn-lg" type="submit" form="envio" onclick="compraExitosa()">Comprar</button>
         </form>
       </div>
-      
+    </div> 
+  </div>    
+
 <div class="modal fade" id="tarjetaCredito" tabindex="-1" aria-labelledby="tarjetaCreditoLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

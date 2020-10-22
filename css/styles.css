@@ -373,3 +373,12 @@ a.custom-card:hover {
 #cvv {
   width: 10%;
 }
+
+#sub{
+  font-weight: bold;
+  text-align: right;
+}
+
+#direccionEnvio{
+  margin-top: 3%;
+}

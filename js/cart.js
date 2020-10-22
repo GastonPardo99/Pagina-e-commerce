@@ -40,9 +40,13 @@ function showArticulosCarrito(array){
                                 </tr>
                                 <tr>
                                 <td colspan="4"></td>
-                                <td colspan="2">SUBTOTAL (USD) : <span id="subtotal` + i + `"></span></td>
                             </tr>
-                                `
+                        </tbody>
+                    </table>    
+                </div>
+                <p id="sub">SUBTOTAL (USD) : <span id="subtotal` + i + `"></span></p>
+            </div>
+        </div>                            `
         
     }
 
@@ -54,8 +58,12 @@ function showArticulosCarrito(array){
 
 
 function compraExitosa(){
-    mensaje = alerta.msg
-    alert(mensaje)
+    if (document.getElementById("direccionEnvio").value === "" ){
+        alert ("Completar datos de envio")
+    } else {
+        mensaje = alerta.msg
+        alert(mensaje)
+    }
 }
 
 function envioTotal(tipoenvio){
@@ -66,7 +74,6 @@ function envioTotal(tipoenvio){
     
 }
 
-let checkeo = false
 function validar(event){
 
 
@@ -98,10 +105,7 @@ if (!cvvExpress.test(cvvInput)){
 if (!monthExpress.test(monthInput)){
     alert("Información invalida. Debe seleccionar un mes");
     event.preventDefault();
-    // document.getElementById("mesVencimientoCheck").innerHTML = "❌"
-} else {
-    // document.getElementById("mesVencimientoCheck").innerHTML = "✅"
-}
+} 
 if (!yearExpress.test(yearInput)){
     alert("Información invalida. Debe seleccionar un año");
     document.getElementById("añoVencimientoCheck").innerHTML = "❌"
@@ -142,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         function sumatoriaTotal(){
             var total = 0;
             for (let i=0; i<articulosArray.length;i++){
-                // subtotales += document.getElementById("subtotal"+ i).value;
                 total += parseInt(document.getElementById("subtotal"+ i).textContent); 
             }
             document.getElementById("subtotales").innerHTML = total;
@@ -164,8 +167,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
         for (let i=0; i<articulosArray.length;i++){
-            document.getElementById("cantidad"+i).addEventListener("change",costo);
-
+            document.getElementById("cantidad"+i).addEventListener("change",costo)
         }
 
         

@@ -13,10 +13,14 @@ function showCategoriesList(array){
         <div class="col-12 col-md-6 col-lg-3">
         <a href="product-info.html?producto= `+ product.name +`" class="card list-group-item list-group-item-action">
           <img class="bd-placeholder-img card-img-top"  src="` + product.imgSrc + `">
+          <hr>
           <h3 class="m-3">`+ product.name +`</h3>
+          <hr>
           <div class="card-body">
             <p class="card-text">` + product.description + `</p>
+            <hr>
             <p class="card-text">Cantidad disponible: ` + product.soldCount + `</p>
+            <hr>
             <p class="card-text">` + product.cost + ` USD</p>
           </div>
         </a>
@@ -99,10 +103,14 @@ fetch(PRODUCTS_URL).then(respuesta => {
             <div class="col-12 col-md-6 col-lg-3">
               <a href="product-info.html?producto= `+ respuesta[i].name +`" class="card list-group-item list-group-item-action">
                 <img class="bd-placeholder-img card-img-top"  src="` + respuesta[i].imgSrc + `">
+                <hr>
                 <h3 class="m-3">`+ respuesta[i].name +`</h3>
+                <hr>
                 <div class="card-body">
                   <p class="card-text">` + respuesta[i].description + `</p>
+                  <hr>
                   <p class="card-text">` + respuesta[i].soldCount + `</p>
+                  <hr>
                   <p class="card-text">` + respuesta[i].cost + `</p>
                 </div>
               </a>

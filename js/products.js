@@ -10,25 +10,17 @@ function showCategoriesList(array){
         let product = array[i];
 
         htmlContentToAppend += `
-        <a href="product-info.html?producto= ` + product.name + `" class="list-group-item list-group-item-action">
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="nombre_auto">`+ product.name +`</h4>
-                        <small class="text-muted">` + product.soldCount + ` artículos</small>
-                    </div>
-                    <div class="precio">` + product.cost +` `+ product.currency +`</div>
-                    <div id="descripcion">`+ product.description +`</div>
-
-                </div>
-            </div>
-        </div>
-        </a>    
+        <div class="col-12 col-md-6 col-lg-3">
+        <a href="product-info.html?producto= `+ product.name +`" class="card list-group-item list-group-item-action">
+          <img class="bd-placeholder-img card-img-top"  src="` + product.imgSrc + `">
+          <h3 class="m-3">`+ product.name +`</h3>
+          <div class="card-body">
+            <p class="card-text">` + product.description + `</p>
+            <p class="card-text">Cantidad disponible: ` + product.soldCount + `</p>
+            <p class="card-text">` + product.cost + ` USD</p>
+          </div>
+        </a>
+      </div>
         `
 
         document.getElementById("car-list-container").innerHTML = htmlContentToAppend;
@@ -104,22 +96,19 @@ fetch(PRODUCTS_URL).then(respuesta => {
         if (respuesta[i].cost >= precio_min && respuesta[i].cost <= precio_max)  {
                    
             htmlContentToAppend += `
-                    <a href="product-info.html" class="list-group-item list-group-item-action" >
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="` + respuesta[i].imgSrc + `" alt="` + respuesta[i].description + `" class="img-thumbnail">
-                            </div>
-                            <div class="col">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h4 class="mb-1">`+ respuesta[i].name +`</h4>
-                                    <small class="text-muted">` + respuesta[i].soldCount + ` artículos</small>
-                                </div>
-                                <p class="precio">` + respuesta[i].cost + `</p>
-                                <p class="mb-1">` + respuesta[i].description + `</p>
-                            </div>
-                        </div>
-                    </a>
-                    `
+            <div class="col-12 col-md-6 col-lg-3">
+              <a href="product-info.html?producto= `+ respuesta[i].name +`" class="card list-group-item list-group-item-action">
+                <img class="bd-placeholder-img card-img-top"  src="` + respuesta[i].imgSrc + `">
+                <h3 class="m-3">`+ respuesta[i].name +`</h3>
+                <div class="card-body">
+                  <p class="card-text">` + respuesta[i].description + `</p>
+                  <p class="card-text">` + respuesta[i].soldCount + `</p>
+                  <p class="card-text">` + respuesta[i].cost + `</p>
+                </div>
+              </a>
+            </div>
+                
+            `
                 }
         
                 document.getElementById("car-list-container").innerHTML = htmlContentToAppend;
@@ -137,4 +126,3 @@ document.getElementById("searching").addEventListener("keyup", function(e){
     let searchArray = categoriesArray.filter(elemento => (elemento.name.includes(searchInput)) || (elemento.description.includes(searchInput)));
     showCategoriesList(searchArray);
 });
-
